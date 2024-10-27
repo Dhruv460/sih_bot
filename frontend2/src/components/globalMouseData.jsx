@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import io from "socket.io-client";
 
 const socket = io("https://sih-again-1.onrender.com", {
-  transports: ["websocket"], // Use WebSocket transport
-  withCredentials: true, // Send credentials (cookies) with requests
+  transports: ["websocket", "polling"],
+  withCredentials: true,
 });
 
 const GlobalMouseTracker = () => {
@@ -13,7 +13,6 @@ const GlobalMouseTracker = () => {
       const mouseData = { x: clientX, y: clientY, timestamp: Date.now() };
       console.log("Mouse Data: ", mouseData);
 
-      // Send data to the Socket.io server
       socket.emit("mouse_data", mouseData);
     };
 

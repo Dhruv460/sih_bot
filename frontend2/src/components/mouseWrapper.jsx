@@ -5,7 +5,6 @@ import GlobalMouseTracker from "./globalMouseData.jsx";
 const MouseTrackerWrapper = () => {
   const location = useLocation();
 
-  // Render the GlobalMouseTracker only on the signup page
   return location.pathname === "/signup" ? <GlobalMouseTracker /> : null;
 };
 
